@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
-PORT=3000
 DIR=~/app
 UPDATE=false
 
 usage() {
-  echo "Usage: $0 -c <cors_origins> [-p <port>] [-d <directory>] [-u]"
+  echo "Usage: $0 -c <cors_origins> [-d <directory>] [-u]"
   echo ""
   echo "Options:"
   echo "  -c, --cors      CORS origins (required, e.g., https://budget.yourdomain.com)"
-  echo "  -p, --port       Frontend port (default: 3000)"
   echo "  -d, --dir        Install directory (default: ~/app)"
   echo "  -u, --update     Update existing installation"
   echo "  -h, --help       Show this help message"
@@ -21,10 +19,6 @@ while [[ $# -gt 0 ]]; do
   case $1 in
     -c|--cors)
       CORS_ORIGINS="$2"
-      shift 2
-      ;;
-    -p|--port)
-      PORT="$2"
       shift 2
       ;;
     -d|--dir)
@@ -83,7 +77,6 @@ if [[ -f .env ]]; then
 fi
 
 cat > .env << EOF
-PORT=$PORT
 CORS_ORIGINS=$CORS_ORIGINS
 EOF
 
@@ -98,8 +91,8 @@ echo "Pulling and starting containers..."
 docker compose pull
 docker compose up -d
 
-IP=$(hostname -I | awk '{print $1}')
 echo ""
 echo "Installation complete!"
-echo "Frontend available at http://$IP:$PORT"
+echo "Frontend available at http://<ip>:80"
+echo "Configure Caddy to proxy to http://<ip>:80"
 echo "Backend is internal-only."

@@ -11,17 +11,22 @@ curl -sL https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/install.
 ```bash
 mkdir -p ~/app && cd ~/app
 curl -sO https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/docker-compose.yml
-echo 'PORT=3000' > .env
-echo 'CORS_ORIGINS=https://budget.yourdomain.com' >> .env
+echo 'CORS_ORIGINS=https://budget.yourdomain.com' > .env
 docker compose up -d
 ```
+
+## Notes
+
+- Frontend uses host networking (nginx on port 80)
+- Backend is internal-only on Docker network
+- Caddy should route to `http://<ip>:80`
 
 ## Options
 
 | Flag | Description | Default |
 |------|-------------|---------|
 | `-c, --cors` | CORS origins (required) | - |
-| `-p, --port` | Frontend port | `3000` |
+| `-p, --port` | Frontend port (ignored, uses 80) | `80` |
 | `-d, --dir` | Install directory | `~/app` |
 | `-u, --update` | Update existing installation | - |
 

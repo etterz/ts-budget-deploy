@@ -31,5 +31,5 @@ docker compose up -d
 ## Images
 
 Pre-built images from GitHub Container Registry:
-- `ghcr.io/etterz/ts-budget/frontend:latest`
-- `ghcr.io/etterz/ts-budget/backend:latest`
+- `ghcr.io/etterz/ts_budget/frontend:latest`
+- `ghcr.io/etterz/ts_budget/backend:latest`

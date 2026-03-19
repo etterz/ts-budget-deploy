@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts-budget}/frontend:latest
+    image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts_budget}/frontend:latest
     depends_on:
       - backend
     ports:
@@ -10,7 +10,7 @@ services:
     restart: unless-stopped
 
   backend:
-    image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts-budget}/backend:latest
+    image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts_budget}/backend:latest
     volumes:
       - budget_db:/app/data
     environment:

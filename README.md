@@ -17,11 +17,18 @@ docker compose up -d
 
 ## Notes
 
-- Frontend uses host networking (nginx on port 80)
+- Frontend exposes port 3000 (Caddy routes here)
 - Backend is internal-only on Docker network
-- Caddy should route to `http://<ip>:80`
 
 ## Options
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-c, --cors` | CORS origins (required) | - |
+| `-d, --dir` | Install directory | `~/app` |
+| `-u, --update` | Update existing installation | - |
+
+## Images
 
 | Flag | Description | Default |
 |------|-------------|---------|

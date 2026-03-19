@@ -13,15 +13,9 @@ services:
     environment:
       - DB_PATH=/app/data/budget.db
       - CORS_ORIGINS=${CORS_ORIGINS:-https://budget.yourdomain.com}
-    networks:
-      - app_net
+    network_mode: host
     restart: unless-stopped
 
 volumes:
   budget_db:
     driver: local
-
-networks:
-  app_net:
-    driver: bridge
-    internal: true

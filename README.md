@@ -17,7 +17,7 @@ docker compose up -d
 
 ## Notes
 
-- Frontend exposes port 3000 (Caddy routes here)
+- Frontend listens on port 3000 (Caddy routes here)
 - Backend is internal-only on Docker network
 
 ## Options

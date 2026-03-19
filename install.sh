@@ -93,6 +93,6 @@ docker compose up -d
 
 echo ""
 echo "Installation complete!"
-echo "Frontend available at http://<ip>:80"
-echo "Configure Caddy to proxy to http://<ip>:80"
+echo "Frontend available at http://<ip>:3000"
+echo "Configure Caddy to proxy to http://<ip>:3000"
 echo "Backend is internal-only."

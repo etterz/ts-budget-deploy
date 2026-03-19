@@ -3,10 +3,7 @@ services:
     image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts_budget}/frontend:latest
     depends_on:
       - backend
-    ports:
-      - "3000:80"
-    networks:
-      - app_net
+    network_mode: host
     restart: unless-stopped
 
   backend:

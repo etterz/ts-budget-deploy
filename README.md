@@ -30,15 +30,6 @@ docker compose up -d
 
 ## Images
 
-| Flag | Description | Default |
-|------|-------------|---------|
-| `-c, --cors` | CORS origins (required) | - |
-| `-p, --port` | Frontend port (ignored, uses 80) | `80` |
-| `-d, --dir` | Install directory | `~/app` |
-| `-u, --update` | Update existing installation | - |
-
-## Images
-
 Pre-built images from GitHub Container Registry:
 - `ghcr.io/etterz/ts-budget/frontend:latest`
 - `ghcr.io/etterz/ts-budget/backend:latest`

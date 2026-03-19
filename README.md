@@ -1,18 +1,29 @@
 # Budget App Deployment
 
-## Quick Start
+## Install (One-liner)
+
+```bash
+curl -sL https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/install.sh | bash -s -- -c https://budget.yourdomain.com
+```
+
+## Manual Setup
 
 ```bash
 mkdir -p ~/app && cd ~/app
 curl -sO https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/docker-compose.yml
-echo 'CORS_ORIGINS=https://yourdomain.com' > .env
-docker compose pull
+echo 'PORT=3000' > .env
+echo 'CORS_ORIGINS=https://budget.yourdomain.com' >> .env
 docker compose up -d
 ```
 
-## Configuration
+## Options
 
-Edit `.env` and set `CORS_ORIGINS` to your domain.
+| Flag | Description | Default |
+|------|-------------|---------|
+| `-c, --cors` | CORS origins (required) | - |
+| `-p, --port` | Frontend port | `3000` |
+| `-d, --dir` | Install directory | `~/app` |
+| `-u, --update` | Update existing installation | - |
 
 ## Images
 

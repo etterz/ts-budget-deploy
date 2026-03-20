@@ -1,6 +1,7 @@
 services:
   frontend:
     image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts_budget}/frontend:latest
+    pull_policy: always
     depends_on:
       - backend
     environment:
@@ -10,6 +11,7 @@ services:
 
   backend:
     image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts_budget}/backend:latest
+    pull_policy: always
     volumes:
       - budget_db:/app/data
     environment:

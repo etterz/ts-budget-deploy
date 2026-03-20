@@ -3,6 +3,8 @@ services:
     image: ghcr.io/${GITHUB_REPOSITORY:-etterz/ts_budget}/frontend:latest
     depends_on:
       - backend
+    environment:
+      - PORT=${PORT:-3000}
     network_mode: host
     restart: unless-stopped
 

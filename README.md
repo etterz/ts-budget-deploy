@@ -6,18 +6,24 @@
 curl -sL https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/install.sh | bash -s -- -c https://budget.yourdomain.com
 ```
 
+## Install with Custom Port
+
+```bash
+curl -sL https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/install.sh | bash -s -- -c https://budget.yourdomain.com -p 8080
+```
+
 ## Manual Setup
 
 ```bash
 mkdir -p ~/app && cd ~/app
 curl -sO https://raw.githubusercontent.com/etterz/ts-budget-deploy/main/docker-compose.yml
-echo 'CORS_ORIGINS=https://budget.yourdomain.com' > .env
+printf 'PORT=3000\nCORS_ORIGINS=https://budget.yourdomain.com\n' > .env
 docker compose up -d
 ```
 
 ## Notes
 
-- Frontend listens on port 3000 (Caddy routes here)
+- Frontend listens on port 3000 by default (configurable via PORT env var)
 - Backend is internal-only on Docker network
 
 ## Options
@@ -25,6 +31,7 @@ docker compose up -d
 | Flag | Description | Default |
 |------|-------------|---------|
 | `-c, --cors` | CORS origins (required) | - |
+| `-p, --port` | Frontend port | `3000` |
 | `-d, --dir` | Install directory | `~/app` |
 | `-u, --update` | Update existing installation | - |
 
